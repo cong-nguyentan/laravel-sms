@@ -200,7 +200,11 @@ return [
         /**
          * Extend laravel validation, adding phone rule
          */
-		congnguyentan\PhoneValidate\PhoneValidateServiceProvider::class,
+        congnguyentan\PhoneValidate\PhoneValidateServiceProvider::class,
+        /**
+         * Package creating
+         */
+        JeroenG\Packager\PackagerServiceProvider::class,
     ],
 
     /*

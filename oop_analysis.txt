@@ -29,6 +29,8 @@ Abs Class
 					+ Properties:
 						* Nexmo\Client\Credentials\Basic $basic
 						* Nexmo\Client $client
+						* string $apiKey
+						* string $secretKey
 					+ Methods:
 						* construct
 						* send:
