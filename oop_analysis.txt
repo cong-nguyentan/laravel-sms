@@ -1,0 +1,36 @@
+Abs Class
+	+ Name: Send
+	+ Properties:
+		* string error
+	+ Methods:
+	+ Abs Methods:
+		* send
+			+ Parameters: none
+			+ Return: boolean
+	+ Implemented:
+		* Abs Class
+			+ Name: Email
+		* Abs Class
+			+ Name: SMS
+			+ Properties:
+				* string phone
+				* string from
+				* string message
+			+ Methods:
+				* setData
+					+ Parameters:
+						* string phone
+						* string from
+						* string message
+					+ Return: void
+			+ Implemented:
+				* Class
+					+ Name: NexmoSMS
+					+ Properties:
+						* Nexmo\Client\Credentials\Basic $basic
+						* Nexmo\Client $client
+					+ Methods:
+						* construct
+						* send:
+							+ Parameters: none
+							+ Return: boolean
