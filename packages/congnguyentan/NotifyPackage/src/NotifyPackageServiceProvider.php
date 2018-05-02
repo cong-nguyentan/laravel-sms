@@ -14,9 +14,18 @@ class NotifyPackageServiceProvider extends ServiceProvider
     public function boot()
     {
         if (!$this->_isLumen()) {
+            $this->loadTranslationsFrom(__DIR__ . '/../translates', 'notify');
+
             $this->publishes(array(
                 __DIR__ . '/../config/notify.php' => config_path('notify.php')
             ), "config");
+
+            $this->publishes(array(
+                __DIR__ . '/../translates/en/email.php' => resource_path('lang/en/email.php'),
+                __DIR__ . '/../translates/en/sms.php' => resource_path('lang/en/sms.php')
+            ), "localize");
+
+            $this->registerHelpers();
         }
     }
 
@@ -31,8 +40,20 @@ class NotifyPackageServiceProvider extends ServiceProvider
     }
 
     /**
+     * Register helpers file
+     */
+    public function registerHelpers()
+    {
+        // Load the helpers
+        if (file_exists($file = __DIR__ . "/helpers.php"))
+        {
+            require $file;
+        }
+    }
+
+    /**
      * Check is Lumen framework
-     * 
+     *
      * @return boolean
      */
     private function _isLumen()

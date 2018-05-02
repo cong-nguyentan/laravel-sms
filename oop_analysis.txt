@@ -1,10 +1,11 @@
 Abs Class
 	+ Name: Notify
-	+ Properties:
-		* protected string error
 	+ Methods:
-	+ Abs Methods:
-		* public send
+		* protected localizeString
+			+ Parameters:
+				* string $key
+			+ Return:
+				* string
 	+ Implemented:
 		* Abs Class
 			+ Name: Email
@@ -15,12 +16,6 @@ Abs Class
 				* protected string from
 				* protected string message
 			+ Methods:
-				* protected setData
-					+ Parameters:
-						* string phone
-						* string from
-						* string message
-					+ Return: void
 				* public setPhone
 					+ Parameters:
 						* string phone
@@ -33,23 +28,33 @@ Abs Class
 					+ Parameters:
 						* string message
 					+ Return: void
+			+ Abs Methods:
+				* public send
+					+ Parameters:
+						* string phone
+						* string from
+						* string message
 			+ Implemented:
 				* Class
 					+ Name: NexmoSMS
 					+ Properties:
-						* Nexmo\Client\Credentials\Basic $basic
-						* Nexmo\Client $client
-						* string $apiKey
-						* string $secretKey
+						* private Nexmo\Client\Credentials\Basic $_basic
+						* private Nexmo\Client $_client
+						* private string $_key
+						* private string $_secret
+						* private object $_instance
 					+ Methods:
-						* construct:
+						* private construct:
+							+ Parameters: none
+							+ Return: void
+						* public send:
 							+ Parameters:
 								* string phone
 								* string from
 								* string message
-							+ Return: void
-						* send:
-							+ Parameters: none
-							+ Return: json data
+							+ Return: array
 								* boolean status
 								* string error
+						* public static getInstance
+							+ Parameters: none
+							+ Return: object

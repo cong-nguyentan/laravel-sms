@@ -51,12 +51,5 @@ Route::get('/logout', function() {
 })->name('auth.logout');
 
 Route::get('/test', function() {
-    $contactFormRequest = new App\Http\Requests\UpdateContactRequest();
-    $data = array(
-        'id' => false,
-        'phone' => '+84937226447'
-    );
-    $checkContactUnique = $contactFormRequest->validateContactUnique($data);
-    //$listPaginated = $listPaginated->toArray();
-    debugVar($checkContactUnique);
+    debugVar(sms_send("841217604545", "Test", "Test"));
 });
