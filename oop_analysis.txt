@@ -1,26 +1,36 @@
 Abs Class
-	+ Name: Send
+	+ Name: Notify
 	+ Properties:
-		* string error
+		* protected string error
 	+ Methods:
 	+ Abs Methods:
-		* send
-			+ Parameters: none
-			+ Return: boolean
+		* public send
 	+ Implemented:
 		* Abs Class
 			+ Name: Email
 		* Abs Class
 			+ Name: SMS
 			+ Properties:
-				* string phone
-				* string from
-				* string message
+				* protected string phone
+				* protected string from
+				* protected string message
 			+ Methods:
-				* setData
+				* protected setData
 					+ Parameters:
 						* string phone
 						* string from
+						* string message
+					+ Return: void
+				* public setPhone
+					+ Parameters:
+						* string phone
+					+ Return: void
+				* public setFrom
+					+ Parameters:
+						* string from
+					+ Return: void
+				* public setMessage
+					+ Parameters:
 						* string message
 					+ Return: void
 			+ Implemented:
@@ -32,7 +42,14 @@ Abs Class
 						* string $apiKey
 						* string $secretKey
 					+ Methods:
-						* construct
+						* construct:
+							+ Parameters:
+								* string phone
+								* string from
+								* string message
+							+ Return: void
 						* send:
 							+ Parameters: none
-							+ Return: boolean
+							+ Return: json data
+								* boolean status
+								* string error

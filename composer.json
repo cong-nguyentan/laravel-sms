@@ -26,6 +26,7 @@
             "database"
         ],
         "psr-4": {
+            "congnguyentan\\NotifyPackage\\": "packages/congnguyentan/NotifyPackage/src",
             "App\\": "app/"
         },
         "files": [
@@ -34,6 +35,7 @@
     },
     "autoload-dev": {
         "psr-4": {
+            "congnguyentan\\NotifyPackage\\": "packages/congnguyentan/NotifyPackage/src",
             "Tests\\": "tests/"
         }
     },
